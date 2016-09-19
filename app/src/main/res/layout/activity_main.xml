@@ -14,7 +14,9 @@
         android:layout_height="wrap_content"
         android:text="Hi Jongkook~"
         android:textSize="50dp"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        android:layout_above="@+id/analogClock"
+        android:layout_centerHorizontal="true" />
 
     <AnalogClock
         android:layout_width="wrap_content"
@@ -26,9 +28,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Button"
+        android:text="New Button"
         android:id="@+id/button"
-        android:layout_above="@+id/analogClock"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/analogClock"
+        android:layout_centerHorizontal="true"
+        android:onClick="changeText" />
+
 </RelativeLayout>
