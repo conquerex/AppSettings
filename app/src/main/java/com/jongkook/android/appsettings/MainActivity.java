@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
     // 2.
     public void changeText(View v){
         TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setText("값변경 v3");
+        // textView.setText("값변경 v3");
+        textView.setText(BuildConfig.MYURL);
     }
 
 }
