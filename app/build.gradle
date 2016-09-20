@@ -28,6 +28,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        //noinspection GroovyMissingReturnStatement,GroovyMissingReturnStatement,GroovyMissingReturnStatement,GroovyMissingReturnStatement
         debug{
             buildConfigField "String", "MYURL", "\"http://test.seoul.go.kr\""
         }

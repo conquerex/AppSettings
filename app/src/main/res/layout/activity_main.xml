@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hi Jongkook~"
-        android:textSize="50dp"
+        android:textSize="50sp"
         android:id="@+id/textView"
         android:layout_above="@+id/analogClock"
         android:layout_centerHorizontal="true" />

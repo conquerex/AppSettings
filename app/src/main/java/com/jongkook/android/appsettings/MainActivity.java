@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+@SuppressWarnings("Corrections")
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
