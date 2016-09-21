@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.jongkook.android.materialdesign_propertyanimation_spreadcube.MainActivity"
+    android:gravity="center"
+    android:id="@+id/ground">
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button1"
+        android:background="#ff0000"
+        android:gravity="center"
+        android:layout_alignTop="@+id/button2"
+        android:layout_alignStart="@+id/button2" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button2"
+        android:background="#ffea04"
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button3"
+        android:background="#74f900"
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button4"
+        android:background="#00c19e"
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button5"
+        android:background="#005bab"
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button6"
+        android:background="#8b32ff"
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button7"
+        android:background="#f42aff"
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button8"
+        android:background="#000000"
+        android:gravity="center" />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/button9"
+        android:background="#ff9e03"
+        android:gravity="center"
+        android:onClick="button9" />
+
+</RelativeLayout>
