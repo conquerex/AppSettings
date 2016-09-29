@@ -20,7 +20,11 @@
         <activity android:name=".CustomListActivity" />
         <activity android:name=".BasicGridActivity" />
         <activity android:name=".CustomGridActivity" />
-        <activity android:name=".ExpandableListActivity"></activity>
+        <activity android:name=".ExpandableListActivity" />
+        <activity android:name=".RecylcerActivity" />
+        <activity android:name=".RecyclerAnimationActivity" />
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".RecyclerCardActivity"></activity>
     </application>
 
 </manifest>
