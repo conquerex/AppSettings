@@ -5,6 +5,7 @@ import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Build;
+import android.provider.ContactsContract;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -101,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
         //getContentResolver().query(주소 검색해 올 컬럼명들, 조건절, 조건절에 매핑되는 값, 정렬);
         Cursor cursor = getContentResolver().query(
                 MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
+                // ContactsContract.Contacts.CONTENT_URI,
                 projections, null, null, null);
         /*
         * - uri           : content://스키마 형태로 정해져 있는 곳의 데이터를 가져온다.
