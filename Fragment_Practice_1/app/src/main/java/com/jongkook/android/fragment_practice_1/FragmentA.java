@@ -1,4 +1,4 @@
-package com.jongkook.android.fragmentbasic_pager;
+package com.jongkook.android.fragment_practice_1;
 
 
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class GalleryFragment extends Fragment {
+public class FragmentA extends Fragment {
 
 
-    public GalleryFragment() {
+    public FragmentA() {
         // Required empty public constructor
     }
 
@@ -23,7 +23,7 @@ public class GalleryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_gallery, container, false);
+        return inflater.inflate(R.layout.fragment_a, container, false);
     }
 
 }

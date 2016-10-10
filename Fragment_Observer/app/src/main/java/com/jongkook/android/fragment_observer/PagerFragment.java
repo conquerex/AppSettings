@@ -1,17 +1,16 @@
-package com.jongkook.android.fragmentbasic_pager;
+package com.jongkook.android.fragment_observer;
 
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
-
-public class BlankFragment extends Fragment {
-
+public class PagerFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
@@ -20,14 +19,12 @@ public class BlankFragment extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public BlankFragment() {
+    public PagerFragment() {
         // Required empty public constructor
     }
 
-
-    public static BlankFragment newInstance(String param1, String param2) {
-        BlankFragment fragment = new BlankFragment();
-
+    public static PagerFragment newInstance(String param1, String param2) {
+        PagerFragment fragment = new PagerFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -47,33 +44,26 @@ public class BlankFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        View view = inflater.inflate(R.layout.fragment_blank2, container, false);
-        TextView title = (TextView) view.findViewById(R.id.title);
-        TextView content = (TextView) view.findViewById(R.id.content);
-        title.setText(mParam1);
-        content.setText(mParam2);
-
-        return view;
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_pager, container, false);
     }
 
-    // TODO: Rename method, update argument and hook method into UI event
     public void onButtonPressed(Uri uri) {
         if (mListener != null) {
             mListener.onFragmentInteraction(uri);
         }
     }
 
-//    @Override
-//    public void onAttach(Context context) {
-//        super.onAttach(context);
-//        if (context instanceof OnFragmentInteractionListener) {
-//            mListener = (OnFragmentInteractionListener) context;
-//        } else {
-//            throw new RuntimeException(context.toString()
-//                    + " must implement OnFragmentInteractionListener");
-//        }
-//    }
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof OnFragmentInteractionListener) {
+            mListener = (OnFragmentInteractionListener) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnFragmentInteractionListener");
+        }
+    }
 
     @Override
     public void onDetach() {
@@ -82,7 +72,36 @@ public class BlankFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+
         void onFragmentInteraction(Uri uri);
+    }
+}
+
+
+class ViewPagerAdapter extends FragmentStatePagerAdapter {
+
+    Data data;
+
+    public ViewPagerAdapter(Data data) {
+        this.data = data;
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        // 04. 각 페이지에 fragment 적용
+        Fragment fragment = null;
+        switch (position){
+            case 0: fragment = list; break;
+            case 1: fragment = pager; break;
+        }
+
+        return fragment;
+    }
+
+    @Override
+    public int getCount() {
+        // 03. 카운트 임의 수 입력
+        // 페이지 수 결정
+        return data.getCount();
     }
 }
