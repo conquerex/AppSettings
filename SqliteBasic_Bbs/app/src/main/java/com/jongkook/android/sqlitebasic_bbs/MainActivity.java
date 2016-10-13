@@ -52,10 +52,6 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
     }
 
     /**************
-     * 기능별 함수
-    **************/
-
-    /**************
      * Adapter
      **************/
 
@@ -101,16 +97,16 @@ public class MainActivity extends AppCompatActivity implements OnFragmentInterac
         Toast.makeText(this, "프래그먼트에서 클릭 됩니다", Toast.LENGTH_SHORT).show();
         switch (flag){
             case ACTION_GOLIST:
-                pager.setCurrentItem(0);; break;
+                pager.setCurrentItem(0); break;
             case ACTION_GOEDIT:
-                pager.setCurrentItem(1);; break;
+                pager.setCurrentItem(1); break;
             case ACTION_GOLIST_WITH_REFRESH:
                 // TODO 목록 갱신추가
                 // 리스트에 새로운 데이터를 추가하고
-                lf.setList();
+                lf.setList(lf.listCount);
                 // 페이저를 리스트로 이동
                 lf.adapter.notifyDataSetChanged();
-                pager.setCurrentItem(0);; break;
+                pager.setCurrentItem(0); break;
         }
     }
 

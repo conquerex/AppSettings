@@ -1,6 +1,5 @@
 package com.jongkook.android.sqlitebasic_bbs;
 
-
 public class BbsData {
     public int no;
     public String title;

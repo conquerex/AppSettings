@@ -65,7 +65,7 @@ public class DataUtil {
         }
     }
 
-
+    // 상세보기를 위한 select
     public static BbsData select(Context context,int bbsno){
         BbsData data = new BbsData();
         SQLiteDatabase db = null;
@@ -103,22 +103,71 @@ public class DataUtil {
             }
         }
         return data;
-            }
+    }
 
-            public static ArrayList<BbsData> selectAll(Context context){
-                ArrayList<BbsData> datas = new ArrayList<>();
-                SQLiteDatabase db = null;
-                Cursor cursor = null;
-                try{
-                    // 1. db를 연결한다
-                    db = openDatabase(context, DB_NAME);
-                    // 2. 쿼리를 만든다
-                    String query = "select no, title from bbs3";
-                    // 3. 쿼리를 실행한다
-                    cursor = db.rawQuery(query,null);
-                    // 4. 반복문을 통해 값을 datas에 담아둔다
-                    while (cursor.moveToNext()){
-                        // 5. 레코드셋을 하나씩 돌면서 Bbsdata단위로 생성한 후
+    // 검색을 위한 카운트 2016.10.12 17:29
+    public static int selectCountByWord(Context context, String word){
+        int count = 10;
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        try{
+            // 1. db를 연결한다
+            db = openDatabase(context, DB_NAME);
+            String where = "";
+            if(!"".equals(word))
+                where = "where title like '%"+word+"%' ";
+            // 2. 쿼리를 만든다
+            String query = "select * from bbs3 " + where + " order by no desc limit "+count;
+            Log.i("selectCountByWord",">>>>>> "+query);
+
+            // 3. 쿼리를 실행한다
+            cursor = db.rawQuery(query,null);
+            // 4. 반복문을 통해 값을 datas에 담아둔다
+            if(cursor.moveToNext()){
+                // 5. 레코드셋을 하나를 Bbsdata단위로 생성한 후
+                count = cursor.getInt(0);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            try{
+                if(db!=null) db.close();
+                if(cursor!=null) cursor.close();
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+        return count;
+    }
+
+    // 데이터의 총 개수 2016.10.12 17:29
+    public static int selectCount(Context context){
+        return selectCountByWord(context, "");
+    }
+
+    // 데이터 모두 조회 2016.10.12
+    public static ArrayList<BbsData> selectAll(Context context, int count){
+        return selectAllByWord(context,count,"");
+    }
+
+    public static ArrayList<BbsData> selectAllByWord(Context context, int count, String word){
+        ArrayList<BbsData> datas = new ArrayList<>();
+        SQLiteDatabase db = null;
+        Cursor cursor = null;
+        try{
+            // 1. db를 연결한다
+            db = openDatabase(context, DB_NAME);
+            String where = "";
+            if(!"".equals(word))
+                where = "where title like '%"+word+"%' ";
+            // 2. 쿼리를 만든다
+            String query = "select * from bbs3 " + where + " order by no desc limit "+count;
+            Log.i("query",">>>>>> "+query);
+            // 3. 쿼리를 실행한다
+            cursor = db.rawQuery(query,null);
+            // 4. 반복문을 통해 값을 datas에 담아둔다
+            while (cursor.moveToNext()){
+                // 5. 레코드셋을 하나씩 돌면서 Bbsdata단위로 생성한 후
                 //    ArrayList에 담아준다.
                 BbsData data = new BbsData();
                 int idx = cursor.getColumnIndex("no");
