@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.jongkook.android.fragment_practice_4.MainActivity">
+
+    <fragment
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:name="com.jongkook.android.fragment_practice_4.TitleFragment"
+        android:id="@+id/tablet_title_fragment"
+        android:layout_weight="1"
+        android:layout_gravity="center_vertical"
+        tools:layout="@layout/fragment_title" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:id="@+id/detail_container"
+        android:layout_gravity="center_vertical">
+
+    </FrameLayout>
+
+</LinearLayout>

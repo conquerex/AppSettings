@@ -1,14 +1,21 @@
 package com.jongkook.android.sqlitebasic_bbs;
 
 import android.content.Context;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.BitmapFactory;
+import android.media.ImageWriter;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 
 public class EditFragment extends Fragment {
@@ -20,12 +27,17 @@ public class EditFragment extends Fragment {
 
     private String mParam1;
     private String mParam2;
+
     Button btnCancel;
     Button btnSave;
+    Button btnImage;
+
     EditText editTitle;
     EditText editName;
     EditText editContent;
     BbsData data;
+    ImageView imageView;
+
     int bbsNo = -1;
 
     // 캔슬하거나 저장후에 호출하여 텍스트필드값을 초기화해준다
@@ -97,10 +109,43 @@ public class EditFragment extends Fragment {
         editName    = (EditText)view.findViewById(R.id.editName);
         editContent = (EditText)view.findViewById(R.id.editContent);
 
+
+        btnImage = (Button) view.findViewById(R.id.image);
+        btnImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // image를 불러오는 action intent
+                Intent intent = new Intent(Intent.ACTION_PICK,
+                        MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                // 결과값을 넘겨받기 위해 호출
+                startActivityForResult(intent, REQ_CODE_IMAGE);
+            }
+        });
+        imageView = (ImageView)view.findViewById(R.id.imageView);
+
         return view;
     }
 
-//    public void onButtonPressed(Fragment fragment) {
+    private static final int REQ_CODE_IMAGE = 99;
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == REQ_CODE_IMAGE && data != null){
+            Uri mediaImage = data.getData();                      // 이미지 URI
+            String selections[] = {MediaStore.Images.Media.DATA}; // 실제 이미지 패스 데이터
+            Cursor cursor = getContext().getContentResolver().query(
+                    mediaImage,selections,null,null,null);
+            if(cursor.moveToNext()){
+                String imagePath = cursor.getString(0);
+                // Log.i("Gallery","image path >>>>>>>> "+imagePath);
+                editName.setText(imagePath);
+                imageView.setImageBitmap(BitmapFactory.decodeFile(imagePath));
+            }
+        }
+    }
+
+    //    public void onButtonPressed(Fragment fragment) {
 //        if (mListener != null) {
 //            mListener.onFragmentInteraction(fragment);
 //        }
