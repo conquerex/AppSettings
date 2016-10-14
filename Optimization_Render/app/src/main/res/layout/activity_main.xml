@@ -27,7 +27,8 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="#61d7ff">
 
                 <Button
                     android:layout_width="wrap_content"
@@ -41,7 +42,8 @@
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="#f9ff82">
 
                 <Button
                     android:layout_width="wrap_content"
@@ -56,7 +58,8 @@
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:background="#ffc9c9">
 
             <LinearLayout
                 android:orientation="horizontal"

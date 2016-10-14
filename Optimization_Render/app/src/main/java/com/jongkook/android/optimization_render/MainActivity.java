@@ -11,13 +11,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Debug.startMethodTracing("traceResult");
-        print100000();
+
+        Thread another01 = new Thread(){
+            @Override
+            public void run(){
+                // 다른 쓰레드에서 돌아가는 로직
+                print100000("another01");
+            }
+        };
+        another01.start();
+
+        Thread another02 = new Thread(){
+            @Override
+            public void run(){
+                // 다른 쓰레드에서 돌아가는 로직
+                print100000("another02");
+            }
+        };
+        another02.start();
+
+        print100000("main");
+
     }
 
-    public void print100000(){
-        for(int i=0 ; i<30000; i++){
+    public void print100000(String tag){
+        for(int i=0 ; i<2000; i++){
             // System.out.println("i = " + i);
             Log.i("PerformanceTest","i = " + i);
         }
