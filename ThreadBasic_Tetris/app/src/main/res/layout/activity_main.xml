@@ -37,38 +37,26 @@
         android:text="↑"
         android:id="@+id/btnUp"
         android:layout_above="@+id/btnDown"
-        android:layout_centerHorizontal="true" />
+        android:layout_toLeftOf="@+id/btnRight"
+        android:layout_toStartOf="@+id/btnRight" />
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_above="@+id/btnUp"
-        android:layout_centerHorizontal="true">
+        android:id="@+id/singleStage"></FrameLayout>
 
-        <FrameLayout
-            android:layout_width="250dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/frameLayout"></FrameLayout>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/frameLayout"
-            android:layout_toEndOf="@+id/frameLayout">
-
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:id="@+id/stage">
-                >
-            </FrameLayout>
-        </LinearLayout>
-
-    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="0 Point"
+        android:id="@+id/pointText"
+        android:layout_below="@+id/singleStage"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>

@@ -15,7 +15,8 @@
         android:layout_height="wrap_content"
         android:name="com.jongkook.android.fragment_practice_4.TitleFragment"
         android:id="@+id/title_fragment"
-        android:layout_centerVertical="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        tools:layout="@layout/fragment_title" />
+        tools:layout="@layout/activity_main"
+        />
 </RelativeLayout>
