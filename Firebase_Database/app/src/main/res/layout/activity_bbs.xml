@@ -17,7 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/button2" />
+        android:id="@+id/btnPost" />
 
     <EditText
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
         android:inputType="textPersonName"
         android:text="Title"
         android:ems="10"
-        android:layout_below="@+id/button2"
+        android:layout_below="@+id/btnPost"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/etTitle" />

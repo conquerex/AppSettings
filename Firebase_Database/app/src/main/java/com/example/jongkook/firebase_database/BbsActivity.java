@@ -34,7 +34,7 @@ public class BbsActivity extends AppCompatActivity {
         etTitle = (EditText) findViewById(R.id.etTitle);
         etName = (EditText) findViewById(R.id.etName);
         etContent = (EditText) findViewById(R.id.etContent);
-        post = (Button)findViewById(R.id.btnOpen);
+        post = (Button)findViewById(R.id.btnPost);
         post.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,13 +42,13 @@ public class BbsActivity extends AppCompatActivity {
                 String name = etName.getText().toString().trim();
                 String content = etContent.getText().toString().trim();
 
-                writeNewPost("abcd1234",title,name,content);
+                writeNewPost("abcd1234",name,title,content);
             }
         });
     }
 
     private void writeNewPost(String userId, String username, String title, String body) {
-        // postref가 가르키는 posts에 유일한 키값을 생성해서 가져온다
+        // postRef가 가르키는 posts에 유일한 키값을 생성해서 가져온다
         String key = postsRef.push().getKey();
         // 글을 쓴 내용을 Post 객체로 만들어 주고
         Post post = new Post(userId,username,title,body);

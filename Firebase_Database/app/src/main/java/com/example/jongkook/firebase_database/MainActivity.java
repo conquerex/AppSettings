@@ -1,6 +1,7 @@
 package com.example.jongkook.firebase_database;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -32,12 +33,12 @@ public class MainActivity extends AppCompatActivity {
     // DatabaseReference rootRef;
     DatabaseReference userRef;
 
-    FireAdapter adapter;
-
+    ArrayList<Map<String,User>> datas = new ArrayList<>();
     EditText etUid;
     EditText etName;
     EditText etEmail;
     Button btn;
+    Button btnOpen;
     ListView listView;
 
     @Override
@@ -48,15 +49,21 @@ public class MainActivity extends AppCompatActivity {
         // Write a message to the database
         // Database Connection
         database = FirebaseDatabase.getInstance();
-        // Reference Point
-        userRef = database.getReference();
-        //DatabaseReference myRef = database.getReference("aaa").child("bbb").child("ccc");
 
         etUid = (EditText) findViewById(R.id.etId);
         etName = (EditText) findViewById(R.id.etName);
         etEmail = (EditText) findViewById(R.id.etEmail);
         btn = (Button) findViewById(R.id.btnAdd);
+        btnOpen = (Button) findViewById(R.id.btnOpen);
         listView = (ListView)findViewById(R.id.listView);
+
+        btnOpen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BbsActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         btn.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                     etName.setText("");
                     etEmail.setText("");
                 }else{
-                    Toast.makeText(MainActivity.this, "아이디, 이름, 이메일을 입력하세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"아이디, 이름, 이메일을 입력하세요",Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -81,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         ListAdapter adapter = new ListAdapter();
         listView.setAdapter(adapter);
 
-
+        // rootRef = database.getReference();
         // 참조포인트
         userRef = database.getReference("users");
         userRef.addValueEventListener(new ValueEventListener() {
@@ -114,7 +121,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void writeNewUser(String userId, String name, String email) {
         User user = new User(name, email);
-        // userRef.child("users").child(userId).setValue(user);
         userRef.child(userId).setValue(user);
 
        /*
@@ -125,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         */
     }
 
-    ArrayList<Map<String,User>> datas = new ArrayList<>();
+
     class ListAdapter extends BaseAdapter{
 
         LayoutInflater inflater;
@@ -166,47 +172,6 @@ public class MainActivity extends AppCompatActivity {
             tvId.setText(uid);
             tvName.setText(user.username);
             tvEmail.setText(user.email);
-            return null;
-        }
-    }
-
-    public class FireAdapter extends BaseAdapter{
-
-        private ArrayList<User> data;
-        LayoutInflater inflater;
-
-        public FireAdapter(ArrayList<User> data, LayoutInflater inflater) {
-            this.data = data;
-            this.inflater = inflater;
-        }
-
-        @Override
-        public int getCount() {
-            return data.size();
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return data.get(i);
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return i;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            if(view == null){
-                view = inflater.inflate(R.layout.item, null);
-            }
-            TextView tvId = (TextView)view.findViewById(R.id.tvId);
-            TextView tvName = (TextView)view.findViewById(R.id.tvName);
-            TextView tvEmail = (TextView)view.findViewById(R.id.tvEmail);
-
-            tvName.setText(data.get(i).getUsername());
-            tvEmail.setText(data.get(i).getEmail());
-
             return view;
         }
     }

@@ -16,7 +16,6 @@ public class Post {
     public String title;
     public String body;
     public int starCount = 0;
-    public Map<String, Boolean> stars = new HashMap<>();
 
     public Post() {
         // Default constructor required for calls to DataSnapshot.getValue(Post.class)
