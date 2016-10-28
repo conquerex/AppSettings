@@ -16,6 +16,9 @@ import com.bumptech.glide.request.target.Target;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import jp.wasabeef.glide.transformations.BlurTransformation;
+import jp.wasabeef.glide.transformations.CropCircleTransformation;
+
 public class MainActivity extends AppCompatActivity {
 
     Button button;
@@ -35,30 +38,33 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String url = "https://www.porternovelli.com/wp-content/uploads/2015/07/NewYork_shutterstock_RF_237303676.jpg";
                 progressBar.setVisibility(View.VISIBLE);
-                Picasso.with(MainActivity.this).load(url).into(imageView, new Callback() {
-                    @Override
-                    public void onSuccess() {
-                        progressBar.setVisibility(View.GONE);
-                    }
-
-                    @Override
-                    public void onError() {
-
-                    }
-                });
-//                Glide.with(MainActivity.this).load(url).listener(new RequestListener<String, GlideDrawable>() {
+//                Picasso.with(MainActivity.this).load(url).into(imageView, new Callback() {
 //                    @Override
-//                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+//                    public void onSuccess() {
 //                        progressBar.setVisibility(View.GONE);
-//                        return false;
 //                    }
 //
 //                    @Override
-//                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
-//                        progressBar.setVisibility(View.GONE);
-//                        return false;
+//                    public void onError() {
+//
 //                    }
-//                }).into(imageView);
+//                });
+                Glide.with(MainActivity.this)
+                        .load(url).bitmapTransform(new CropCircleTransformation(MainActivity.this)
+                                                  ,new BlurTransformation(MainActivity.this, 25))
+                        .listener(new RequestListener<String, GlideDrawable>() {
+                    @Override
+                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                        progressBar.setVisibility(View.GONE);
+                        return false;
+                    }
+
+                    @Override
+                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                        progressBar.setVisibility(View.GONE);
+                        return false;
+                    }
+                }).into(imageView);
             }
         });
     }
