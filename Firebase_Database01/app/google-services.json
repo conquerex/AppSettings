@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "289927233327",
+    "firebase_url": "https://fchicken-a446d.firebaseio.com",
+    "project_id": "fchicken-a446d",
+    "storage_bucket": "fchicken-a446d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:289927233327:android:e6578b8b9970c2fd",
+        "android_client_info": {
+          "package_name": "com.example.jongkook.firebase_database01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "289927233327-80o6qvh0vqi8m4u8cvtt3i20krpdkiu8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwE6O2YvGRh0oDKKF31aJl67rAn2j9Oek"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
