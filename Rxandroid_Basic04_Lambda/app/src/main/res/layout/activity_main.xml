@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.jongkook.rxandroid_basic04_lambda.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="result : "
+        android:id="@+id/textView" />
+
+    <Button
+        android:text="Map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnLambda"
+        android:layout_toRightOf="@+id/btnLambda"
+        android:layout_toEndOf="@+id/btnLambda"
+        android:id="@+id/btnMap" />
+
+    <Button
+        android:text="Flatmap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnMap"
+        android:layout_toRightOf="@+id/btnMap"
+        android:layout_toEndOf="@+id/btnMap"
+        android:id="@+id/btnFlatmap" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/btnLambda"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/listView" />
+
+    <Button
+        android:text="Lambda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnLambda"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="zip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnFlatmap"
+        android:layout_toRightOf="@+id/btnFlatmap"
+        android:layout_toEndOf="@+id/btnFlatmap"
+        android:id="@+id/btnZip" />
+</RelativeLayout>

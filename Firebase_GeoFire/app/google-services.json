@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "756501574351",
+    "firebase_url": "https://geofire-2c047.firebaseio.com",
+    "project_id": "geofire-2c047",
+    "storage_bucket": "geofire-2c047.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756501574351:android:9238ef0f095d6d4d",
+        "android_client_info": {
+          "package_name": "com.example.jongkook.firebase_geofire"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "756501574351-912a87gfdutr890gp40p50bl9s0kfbec.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jongkook.firebase_geofire",
+            "certificate_hash": "FC701B1884BAD4127CD8BFDF32BA0B9011C1CD20"
+          }
+        },
+        {
+          "client_id": "756501574351-smaaru6ouu5mddq0seksfio2uaqus0j6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtP03nVwe1PfoFGP5JVNMzF82e_9bQCQs"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "756501574351-smaaru6ouu5mddq0seksfio2uaqus0j6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

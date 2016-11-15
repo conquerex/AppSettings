@@ -1,0 +1,22 @@
+<resources>
+    <!--
+    TODO: Before you run your application, you need a Google Maps API key.
+
+    To get one, follow this link, follow the directions and press "Create" at the end:
+
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=FC:70:1B:18:84:BA:D4:12:7C:D8:BF:DF:32:BA:0B:90:11:C1:CD:20%3Bcom.example.jongkook.googlemap_clustering
+
+    You can also add your credentials to an existing key, using this line:
+    FC:70:1B:18:84:BA:D4:12:7C:D8:BF:DF:32:BA:0B:90:11:C1:CD:20;com.example.jongkook.googlemap_clustering
+
+    Alternatively, follow the directions here:
+    https://developers.google.com/maps/documentation/android/start#get-key
+
+    Once you have your key (it starts with "AIza"), replace the "google_maps_key"
+    string in this file.
+    -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
+        <!-- AIzaSyCBxQpLhnJoyJWa3DY2VoCW3C6Yamu3fWw -->
+        AIzaSyC025W7aUdAfS5z9DC5hq4xQ1pgR7_diXM
+    </string>
+</resources>
